@@ -1,0 +1,33 @@
+{
+  "scopeName": "source.productScript",
+  "name": "Product Script",
+  "patterns": [
+    {
+      "name": "comment.line.apostrophe.productScript",
+      "match": "'.*$"
+    },
+    {
+      "name": "comment.line.double-slash.productScript",
+      "match": "//.*$"
+    },
+    {
+      "name": "string.quoted.double.productScript",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.productScript",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "name": "constant.numeric.productScript",
+      "match": "\\b\\d+(?:\\.\\d+)?\\b"
+    },
+    {
+      "name": "variable.other.productScript",
+      "match": "[$!][A-Za-z_][A-Za-z0-9_]*"
+    }
+  ]
+}

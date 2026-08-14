@@ -1,0 +1,185 @@
+{
+  "name": "product-script-support",
+  "displayName": "Product Script Support",
+  "description": "Workspace-oriented development support for a custom script language.",
+  "version": "0.1.0",
+  "publisher": "sample-company",
+  "license": "UNLICENSED",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Debuggers",
+    "Other"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "workspaceContains:Scripts/**/*.txt",
+    "onDebug:productScript",
+    "onView:productScript.view"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "productScript",
+        "aliases": [
+          "Product Script",
+          "productScript"
+        ],
+        "filenamePatterns": [
+          "**/Scripts/**/*.txt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "productScript",
+        "scopeName": "source.productScript",
+        "path": "./syntaxes/product-script.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "productScript.selectTarget",
+        "title": "Select Target",
+        "category": "Product Script",
+        "icon": "$(target)"
+      },
+      {
+        "command": "productScript.compile",
+        "title": "Compile",
+        "category": "Product Script",
+        "icon": "$(check)"
+      },
+      {
+        "command": "productScript.debug",
+        "title": "Debug",
+        "category": "Product Script",
+        "icon": "$(debug-alt)"
+      },
+      {
+        "command": "productScript.refresh",
+        "title": "Refresh",
+        "category": "Product Script",
+        "icon": "$(refresh)"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "productScript.view",
+          "name": "PRODUCT SCRIPT"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "productScript.refresh",
+          "when": "view == productScript.view",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Product Script",
+      "properties": {
+        "productScript.rootScripts": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Workspace-relative root script paths used by Compile and Debug. Example: Scripts/main_01.txt"
+        },
+        "productScript.definitionDirectory": {
+          "type": "string",
+          "default": ".vscode/product-script",
+          "description": "Workspace-relative directory containing language.json and functions.json."
+        },
+        "productScript.compiler.command": {
+          "type": "string",
+          "default": "",
+          "description": "External compiler executable path or command."
+        },
+        "productScript.compiler.arguments": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Compiler arguments. Supports ${workspaceFolder}, ${rootScript}, and ${rootScriptRelative}."
+        },
+        "productScript.compiler.cwd": {
+          "type": "string",
+          "default": "${workspaceFolder}",
+          "description": "Compiler working directory."
+        },
+        "productScript.compiler.diagnosticsMode": {
+          "type": "string",
+          "enum": [
+            "none",
+            "json"
+          ],
+          "default": "none",
+          "description": "When json, stdout is parsed as the documented diagnostics JSON format."
+        },
+        "productScript.debugAdapter.command": {
+          "type": "string",
+          "default": "",
+          "description": "External C# Debug Adapter executable path or command."
+        },
+        "productScript.debugAdapter.arguments": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Arguments passed when starting the Debug Adapter. Supports ${workspaceFolder}, ${rootScript}, and ${rootScriptRelative}."
+        },
+        "productScript.debugAdapter.cwd": {
+          "type": "string",
+          "default": "${workspaceFolder}",
+          "description": "Debug Adapter working directory."
+        }
+      }
+    },
+    "debuggers": [
+      {
+        "type": "productScript",
+        "label": "Product Script",
+        "languages": [
+          "productScript"
+        ],
+        "configurationAttributes": {
+          "launch": {
+            "required": [],
+            "properties": {
+              "program": {
+                "type": "string",
+                "description": "Root script. If omitted, the Product Script target is used."
+              }
+            }
+          }
+        },
+        "initialConfigurations": [
+          {
+            "type": "productScript",
+            "request": "launch",
+            "name": "Product Script: Debug Current Target"
+          }
+        ]
+      }
+    ],
+    "breakpoints": [
+      {
+        "language": "productScript"
+      }
+    ]
+  },
+  "scripts": {
+    "check": "node --check src/extension.js"
+  }
+}

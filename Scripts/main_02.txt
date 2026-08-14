@@ -1,0 +1,6 @@
+IMPORT("Common/common.txt")
+
+FUNCTION Main()
+    MESSAGE("main_02")
+    WAIT(100)
+ENDFUNCTION

@@ -1,0 +1,19 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "productScript",
+            "request": "launch",
+            "name": "Product Script: Debug Current Target"
+        },
+        {
+            "type": "productScript",
+            "request": "launch",
+            "name": "Debug main_02.txt",
+            "program": "c:\\Users\\khf05\\OneDrive\\Documents\\vscode\\Full\\product-script-workspace\\product-script-workspace\\Scripts\\main_02.txt"
+        }
+    ]
+}

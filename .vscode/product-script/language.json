@@ -1,0 +1,46 @@
+{
+  "keywords": [
+    "IF",
+    "ELSE",
+    "ENDIF",
+    "WHILE",
+    "ENDWHILE",
+    "FUNCTION",
+    "ENDFUNCTION",
+    "IMPORT"
+  ],
+  "snippets": [
+    {
+      "prefix": "if",
+      "label": "IF ... ENDIF",
+      "insertText": "IF (${1:condition})\n\t${0}\nENDIF",
+      "description": "条件分岐（サンプル）"
+    },
+    {
+      "prefix": "while",
+      "label": "WHILE ... ENDWHILE",
+      "insertText": "WHILE (${1:condition})\n\t${0}\nENDWHILE",
+      "description": "繰り返し（サンプル）"
+    },
+    {
+      "prefix": "function",
+      "label": "FUNCTION ... ENDFUNCTION",
+      "insertText": "FUNCTION ${1:Name}(${2})\n\t${0}\nENDFUNCTION",
+      "description": "関数定義（サンプル）"
+    },
+    {
+      "prefix": "import",
+      "label": "IMPORT(...) ",
+      "insertText": "IMPORT(\"${1:path}\")",
+      "description": "別ファイル参照（サンプル）"
+    }
+  ],
+  "patterns": {
+    "functionDefinition": "\\bFUNCTION\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*\\(([^)]*)\\)",
+    "import": "\\bIMPORT\\s*\\(\\s*\"([^\"]+)\"\\s*\\)",
+    "variable": "[$!][A-Za-z_][A-Za-z0-9_]*",
+    "comment": "(?:'|//).*$",
+    "string": "\"(?:\\\\.|[^\"\\\\])*\""
+  },
+  "importBase": "currentFileDirectory"
+}

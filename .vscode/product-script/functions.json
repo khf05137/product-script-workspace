@@ -1,0 +1,32 @@
+{
+  "functions": [
+    {
+      "name": "WAIT",
+      "description": "指定時間待機します（サンプル定義）。",
+      "signature": "WAIT(!Milliseconds)",
+      "insertText": "WAIT(${1:milliseconds})",
+      "returnType": "void",
+      "parameters": [
+        {
+          "name": "!Milliseconds",
+          "type": "integer",
+          "description": "待機時間"
+        }
+      ]
+    },
+    {
+      "name": "MESSAGE",
+      "description": "メッセージを出力します（サンプル定義）。",
+      "signature": "MESSAGE($Text)",
+      "insertText": "MESSAGE(${1:text})",
+      "returnType": "void",
+      "parameters": [
+        {
+          "name": "$Text",
+          "type": "string",
+          "description": "表示文字列"
+        }
+      ]
+    }
+  ]
+}

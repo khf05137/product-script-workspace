@@ -1,0 +1,3 @@
+FUNCTION CommonFunction()
+    MESSAGE("common")
+ENDFUNCTION

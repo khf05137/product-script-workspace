@@ -1,0 +1,27 @@
+{
+  // Compile / Debug のルートスクリプト候補です。
+  // 現在開いているファイルとは独立して、PRODUCT SCRIPT View から Target を選択します。
+  "productScript.rootScripts": [
+    "Scripts/main_01.txt",
+    "Scripts/main_02.txt"
+  ],
+
+  // 言語仕様定義ファイルの配置先です。
+  "productScript.definitionDirectory": ".vscode/product-script",
+
+  // 既存の外部 C# コンパイラに合わせて設定してください。
+  // 例: "C:\\Tools\\ScriptCompiler.exe"
+  "productScript.compiler.command": "",
+  "productScript.compiler.arguments": [
+    "compile",
+    "${rootScript}"
+  ],
+  "productScript.compiler.cwd": "${workspaceFolder}",
+  "productScript.compiler.diagnosticsMode": "none",
+
+  // 既存の C# Debug Adapter(DAP) に合わせて設定してください。
+  // 例: "C:\\Tools\\ScriptDebugAdapter.exe"
+  "productScript.debugAdapter.command": "",
+  "productScript.debugAdapter.arguments": [],
+  "productScript.debugAdapter.cwd": "${workspaceFolder}"
+}
